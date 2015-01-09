@@ -12,12 +12,18 @@ public class SolutionManager {
 	
 	HashMap<String, Solution> HashSolutions ; // the Hash map will save the description of the state of the solution and the Object Solution
 	 private static final String fileName = "solution.bat"; // choose the name of the filename that we'll save the data in to.
-	
+	 private static SolutionManager instance = null;
 	 //c'tor
 	public SolutionManager() { 
 		HashSolutions = new HashMap<String, Solution>();
 	}
 	
+	public static SolutionManager getInstance() {
+		if (instance == null) {
+			instance = new SolutionManager();			
+		}
+		return instance;
+	}
 	
 	// The method will return the right solution by the description
 	public Solution getSolutions (String description){ 

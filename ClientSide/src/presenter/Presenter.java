@@ -31,17 +31,20 @@ public class Presenter implements Observer {
 				int gameOver = model.getGameOver();
 				// print state
 				ui.displayCurrentState(model.getState());
-
 				// if game is over -> print game over
 				if (gameOver != -1) {
 					ui.gameOver(gameOver);
-				} else {
-					// if not get user action
-					ui.setUserPoints();
+				} 
+				else 
+					if(arg1 != null)
+						if(arg1.toString().equals("Computer Turn")) // if not check if computer didn't play yet ) {
+							model.solveDomain(); 
+					else // if not get user action
+						ui.setUserPoints(); 
 				}
 			}
 
-		} else if (arg0 == ui) {
+		 else if (arg0 == ui) {
 			String action = ui.getUserAction();
 			String arr[] = action.split(" ");
 			// start play - player first -> get player action

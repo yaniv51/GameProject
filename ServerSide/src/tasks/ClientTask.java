@@ -1,11 +1,10 @@
 package tasks;
 
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.net.Socket;
 
 public interface ClientTask {
 	
-	public void doTask(InputStream in, OutputStream out);
+	public void doTask(Socket someclient);
 	public void stop();
 	
 

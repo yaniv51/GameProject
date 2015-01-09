@@ -1,13 +1,14 @@
 package networking;
 
-import java.io.InputStream;
-import java.io.OutputStream;
+
+import java.net.Socket;
+
 import tasks.ClientTask;
 
 
 
 public interface ClientHandler extends ClientTask {
 
-	public void startConv(InputStream in, OutputStream out);
+	public void startConv(Socket someclient);
 	
 }

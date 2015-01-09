@@ -26,6 +26,7 @@ public class MyModel extends Observable implements Model {
 	private Problem prob;
 	private InputStream input;
 	private OutputStream output;
+	private boolean firstConnection;
 
 	// c'tor
 	public MyModel(InputStream in, OutputStream out) {
@@ -38,27 +39,31 @@ public class MyModel extends Observable implements Model {
 		prob = new Problem();
 		input = in;
 		output = out;
+		firstConnection = true;
 	}
 
 	// get domain name and use domain factory for getting the right domain
 	@Override
 	public void selectDomain(String domainName) {
 		game = this.gameFactory.createGame(domainName);
+		if(prob.getStatus() != 1) // if client choose to start again a game after finished, initialized new Problem
+			prob = new Problem();
 		prob.setGameDomain(domainName);
+		firstConnection = true;
 	}
 
 	// get algorithm name and use algorithm factory for getting the right
-	// algorithm
 	@Override
 	public void selectAlgorithm(String algorithmName) {
 		ai = this.algorithmFactory.createAlgorithm(algorithmName);
+		//set problem algorithm
 		prob.setAi(algorithmName);
 	}
 
 	// manage game
 	public void gameManager(int row, int column) {
 		// set player turn
-		try {
+		try { 
 			gameOver = game.playerTurn(row, column);
 			System.out.println("end of player turn. now computer");
 		} catch (Exception e) {
@@ -68,24 +73,18 @@ public class MyModel extends Observable implements Model {
 			this.setChanged();
 			this.notifyObservers();
 		}
-
-		// check if winner
-		// if is - notify observers
-		if (gameOver != -1) {
-			this.setChanged();
-			this.notifyObservers();
-		} else {
-			prob.setGame(game.getState());
-			// solve domain - send problem to server
-			this.solveDomain();
-		}
 		// have a solution - notify
 		this.setChanged();
-		this.notifyObservers();
+		this.notifyObservers("Computer Turn");
 	}
 
 	@Override
 	public void solveDomain() {
+		//set problem state to be the current state
+		prob.setGame(game.getState());
+		//set status to continue current game
+		if(firstConnection == false) 
+			prob.setStatus(2);
 		// send server a problem
 		try {
 			new ObjectOutputStream(output).writeObject(prob);
@@ -98,24 +97,32 @@ public class MyModel extends Observable implements Model {
 		try {
 			solution = (Solution) new ObjectInputStream(input).readObject();
 		} catch (ClassNotFoundException | IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+			System.out.println("Failed to get solution from server");
 		}
 		gameOver = game.setSolution(solution.getCurrentState());
+		firstConnection = false;
+		// have a solution - notify
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	// when user enter "exit" -> send to server finish connection
-	public void saveGame() throws Exception {
-		// have to change problem to exit
+	public void saveGame()  {
+		//make new problem to be the smallest that possible
+		prob = new Problem();
+		prob.setStatus(4);
+		try {
+			new ObjectOutputStream(output).writeObject(prob);
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+			System.out.println("connection failed");
+		}
 	}
 
 	// get solution
 	public Solution getSolution() {
 		return solution;
-	}
-
-	// return hard level
-	public int getHardLevel() {
-		return hardLevel;
 	}
 
 	// get hard level and set at game domain

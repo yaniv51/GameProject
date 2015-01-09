@@ -10,76 +10,60 @@ public class Problem implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -2707782663110394514L;
-	State game;
+	State gameState;
 	String gameDomain;
 	String ai;
-	String problem;
+	int status; // 1. new game, 2.computer turn, 3. hint, 4. exit
 	int hardLevel;
 	
 	public String getGameDomain() {
 		return gameDomain;
 	}
 
-
-	public void setGameDomain(String gameDomain) {
-		this.gameDomain = new String(gameDomain);
-	}
-
-
-	public String getAi() {
-		return ai;
-	}
-
-
-	public void setAi(String ai) {
-		this.ai = new String (ai);
-	}
-
-
 	//c'tor
 	public Problem() {
-		problem = new String();
+		status = 1;
 		hardLevel = 0;
 		gameDomain = new String();
 		ai = new String();
 		
 	}
 	
+	//set game domain name
+	public void setGameDomain(String gameDomain) {
+		this.gameDomain = new String(gameDomain);
+	}
+
+	//get + set algorithm name name
+	public String getAi() {
+		return ai;
+	}
+	public void setAi(String ai) {
+		this.ai = new String (ai);
+	}
 	
+	//get and set hard level
 	public int getHardLevel() {
 		return hardLevel;
 	}
-
 	public void setHardLevel(int hardLevel) {
 		this.hardLevel = hardLevel;
 	}
-
+	
+	//get and set game state
 	public State getGame() {
-		return game;
+		return gameState;
 	}
-
 	public void setGame(State game) {
-		this.game = game;
+		this.gameState = game;
 	}
-	
-	//add string to current problem
-	public void addString(String line) {
-		problem = new String(problem+" "+line);
-	}
-	
-	//make new empty problem
-	public void bZero() {
-		problem = new String();
-	}
-
 	
 	//get + set
-	public String getProblem() {
-		return problem;
+	public int getStatus() {
+		return status;
 	}
-
-	public void setProblem(String problem) {
-		this.problem = problem;
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 }

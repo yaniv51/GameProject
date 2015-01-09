@@ -20,6 +20,7 @@ public class MyModel  implements Model {
 	private String hintGame;
 	private int hintDepth;
 	
+	
 	//c'tor
 	public MyModel() {
 		algorithmFactory = new algorithmFactory();
@@ -58,6 +59,7 @@ public class MyModel  implements Model {
 		
 		else {
 			solution = solutionManager.getSolutions(newSolution);
+			
 		}
 	}
 	

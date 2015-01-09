@@ -8,6 +8,7 @@ public interface Model{
 	void selectAlgorithm(String algorithmName);
 	void solveDomain();
 	Solution getSolution();
+	public void saveGame();
 	public void setHardLevel(int depth);
 	public void gameManager(int row, int colum);
 	public int getGameOver();

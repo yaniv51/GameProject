@@ -1,23 +1,20 @@
 package tasks;
 
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.net.Socket;
 
 public class ClientTaskRunnable implements Runnable {
 
 	ClientTask t;
-	OutputStream output;
-	InputStream input;
+	Socket someclient;
 	
-	public ClientTaskRunnable(ClientTask task, OutputStream out, InputStream in) {
+	public ClientTaskRunnable(ClientTask task, Socket someclient) {
 		t = task;
-		output = out;
-		input = in;
+		this.someclient = someclient;
 	}
 	
 	@Override
 	public void run() {
-		t.doTask(input, output);
+		t.doTask(someclient);
 	}
 	
 	public void stop() {

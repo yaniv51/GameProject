@@ -7,25 +7,23 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import tasks.ClientTaskRunnable;
 import tasks.ServerTask;
-
 
 public class MyServer implements ServerTask {
 
 	ExecutorService executors;
 	int numOfClients;
+	int port;
 	ServerSocket server;
 	ClientHandler ch;
 	volatile boolean stop;
 
-	public MyServer() throws IOException {
-
-		server = new ServerSocket(2315);
-		executors = Executors.newFixedThreadPool(3);
-		System.out.println("server alive");
-		stop = false;
+	public MyServer(int port, int numOfClients) throws IOException {
+			server = new ServerSocket(port);
+			executors = Executors.newFixedThreadPool(numOfClients);
+			System.out.println("server alive");
+			stop = false;
 	}
 
 	public void startServer() throws IOException {
@@ -51,9 +49,8 @@ public class MyServer implements ServerTask {
 				if(line.equals("BoardGame") == true)
 				{
 					ch = new GameClientHandler();
-					ClientTaskRunnable r = new ClientTaskRunnable(ch, someclient.getOutputStream(), someclient.getInputStream());
+					ClientTaskRunnable r = new ClientTaskRunnable(ch, someclient);
 					Thread t = new Thread(r);
-					//t.start();
 					executors.execute(t);
 				}
 			}
@@ -76,7 +73,12 @@ public class MyServer implements ServerTask {
 	public void stop() {
 		stop = true;
 		executors.shutdown();
-		System.out.println("server shut down");
+		try {
+			server.close();
+			System.out.println("server shut down");
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
 		
 	}
 

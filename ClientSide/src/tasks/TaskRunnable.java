@@ -13,9 +13,5 @@ public class TaskRunnable implements Runnable {
 		t.doTask();
 
 	}
-	
-	public void stop() {
-		t.stop();
-	}
 
 }

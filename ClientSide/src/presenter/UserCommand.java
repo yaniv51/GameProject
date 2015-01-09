@@ -72,8 +72,7 @@ public class UserCommand {
 
 		@Override
 		public void doCommand(Model gameModel, String select) {
-				//send to server request to disconnect
-		
+				gameModel.saveGame();
 		}
 	}
 

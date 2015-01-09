@@ -13,7 +13,7 @@ public class MyConsolView extends Observable implements View {
 
 	private String input;
 	Scanner in = new Scanner(System.in);
-	
+	boolean stop = false;
 	
 	@Override
 	public void startView() throws IOException {
@@ -39,7 +39,7 @@ public class MyConsolView extends Observable implements View {
 				
 			}
 				
-		}while(!(input.equals("exit")));
+		}while((!(input.equals("exit")))&&(stop == false));
 	}
 	
 	//display current state
@@ -88,13 +88,5 @@ public class MyConsolView extends Observable implements View {
 	public void printHint(String hint) {
 		System.out.println(hint);
 		//this.setUserPoints();
-	}
-
-	@Override
-	public void stop() {
-		// TODO Auto-generated method stub
-		/*
-		 * STOP ALL
-		 */
 	}
 }

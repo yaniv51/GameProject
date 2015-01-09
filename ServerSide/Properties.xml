@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_25" class="java.beans.XMLDecoder">
+ <object class="Properties.MyProperties">
+  <void property="numOfClients">
+   <int>5</int>
+  </void>
+  <void property="port">
+   <int>2525</int>
+  </void>
+ </object>
+</java>
