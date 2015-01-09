@@ -11,6 +11,7 @@ import tasks.RunnableTask;
 
 public class Run {
 	public static void main(String[] args) throws IOException {
+		System.out.println("Test 1");
 		Scanner scan = new Scanner(System.in);
 		//BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		boolean error = false;
