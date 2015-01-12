@@ -24,7 +24,6 @@ public class MyModel  implements Model {
 		algorithmFactory = new algorithmFactory();
 		gameFactory = new GameDomainFactory();
 		solutionManager = SolutionManager.getInstance();
-		//solutionManager.readSolutionFromFile();
 		solution = new Solution();
 		hintGame = new String();
 		hintDepth = 0;
@@ -60,15 +59,6 @@ public class MyModel  implements Model {
 			
 		}
 	}
-	
-/*	//when user enter "exit" -> we will save our solutions
-	public void saveGame() throws Exception {
-			try {
-				solutionManager.WriteSolutionToFile();
-			} catch (IOException e) {
-				throw new Exception("failed to save file");
-			}
-	}*/
 	
 	//get solution
 	public Solution getSolution(){

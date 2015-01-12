@@ -63,8 +63,7 @@ public class GameClientHandler implements ClientHandler {
 				problam = (Problem) new ObjectInputStream(in).readObject();
 				System.out.println("send the problam");//
 			}
-			
-		//	model.saveGame();
+			System.out.println("client disconnected");
 			someclient.close();
 			
 		} catch (Exception e) {
