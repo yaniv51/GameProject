@@ -5,6 +5,8 @@ package networking;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
+
+import model_.SolutionManager;
 import Properties.MyProperties;
 import Properties.PropertiesHandler;
 import tasks.RunnableTask;
@@ -12,6 +14,11 @@ import tasks.RunnableTask;
 public class Run {
 	public static void main(String[] args) throws IOException {
 		System.out.println("Test 1");
+		//create new solution manager
+		SolutionManager sm = SolutionManager.getInstance();
+		//read solutions
+		sm.readSolutionFromFile();
+		
 		Scanner scan = new Scanner(System.in);
 		//BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		boolean error = false;
@@ -52,7 +59,6 @@ public class Run {
 		String s = new String();
 		System.out.println("enter 'stop' to stop server");
 		do {
-			System.out.println("wait for command");
 			s = scan.nextLine();
 			if(s.equals("stop")) 
 				r.stop();	
@@ -60,6 +66,9 @@ public class Run {
 		if(error == true)
 			ph.writeProperties(properties);
 		scan.close();
+	
+		sm.WriteSolutionToFile();
+		
 		System.out.println("server down");
 		
 	}

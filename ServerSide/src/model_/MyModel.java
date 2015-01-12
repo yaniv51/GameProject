@@ -1,7 +1,5 @@
 package model_;
 
-
-import java.io.IOException;
 import model.algorithm.AI;
 import model.algorithm.GameDomain;
 import model.algorithm.State;
@@ -25,8 +23,8 @@ public class MyModel  implements Model {
 	public MyModel() {
 		algorithmFactory = new algorithmFactory();
 		gameFactory = new GameDomainFactory();
-		solutionManager = new SolutionManager();
-		solutionManager.readSolutionFromFile();
+		solutionManager = SolutionManager.getInstance();
+		//solutionManager.readSolutionFromFile();
 		solution = new Solution();
 		hintGame = new String();
 		hintDepth = 0;
@@ -63,14 +61,14 @@ public class MyModel  implements Model {
 		}
 	}
 	
-	//when user enter "exit" -> we will save our solutions
+/*	//when user enter "exit" -> we will save our solutions
 	public void saveGame() throws Exception {
 			try {
 				solutionManager.WriteSolutionToFile();
 			} catch (IOException e) {
 				throw new Exception("failed to save file");
 			}
-	}
+	}*/
 	
 	//get solution
 	public Solution getSolution(){

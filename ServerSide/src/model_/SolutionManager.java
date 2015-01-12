@@ -12,11 +12,13 @@ public class SolutionManager {
 	
 	HashMap<String, Solution> HashSolutions ; // the Hash map will save the description of the state of the solution and the Object Solution
 	 private static final String fileName = "solution.bat"; // choose the name of the filename that we'll save the data in to.
+	 //make class singleton 
 	 private static SolutionManager instance = null;
+	 
 	 //c'tor
-	public SolutionManager() { 
-		HashSolutions = new HashMap<String, Solution>();
-	}
+	/*public SolutionManager() { 
+		//HashSolutions = new HashMap<String, Solution>();
+	}*/
 	
 	public static SolutionManager getInstance() {
 		if (instance == null) {
@@ -44,6 +46,7 @@ public class SolutionManager {
 		FileOutputStream f = new FileOutputStream(fileName);  
 		ObjectOutputStream s = new ObjectOutputStream(f);          
 		s.writeObject(getHashSolutions());
+		System.out.println("write solutions");
 		s.flush();
 		s.close();
 	}
@@ -57,7 +60,7 @@ public class SolutionManager {
 		try {
 			f = new FileInputStream(fileName);
 			ObjectInputStream s = new ObjectInputStream(f);
-			HashSolutions = (HashMap<String, Solution>)s.readObject();         
+			HashSolutions = (HashMap<String, Solution>)s.readObject();  
 			s.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

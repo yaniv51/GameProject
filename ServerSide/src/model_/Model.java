@@ -12,7 +12,7 @@ public interface Model {
 	public void getHint();
 	public String getHintString();
 	public void setHintDepth(int depth);
-	void saveGame() throws Exception;
+	//void saveGame() throws Exception;
 
 	
 

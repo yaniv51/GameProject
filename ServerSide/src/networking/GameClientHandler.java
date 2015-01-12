@@ -64,7 +64,7 @@ public class GameClientHandler implements ClientHandler {
 				System.out.println("send the problam");//
 			}
 			
-			model.saveGame();
+		//	model.saveGame();
 			someclient.close();
 			
 		} catch (Exception e) {
