@@ -6,13 +6,11 @@ import model.algorithm.State;
 
 public class Problem implements Serializable{
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -2707782663110394514L;
 	State gameState;
 	String gameDomain;
-	String ai; // algorithm
+	String ai;
 	int status; // 1. new game, 2.computer turn, 3. hint, 4. exit
 	int hardLevel;
 	
@@ -20,7 +18,9 @@ public class Problem implements Serializable{
 		return gameDomain;
 	}
 
-	//c'tor
+	/**
+	 *  the C'tor of the Problem class 
+	 */
 	public Problem() {
 		status = 1;
 		hardLevel = 0;
@@ -29,12 +29,20 @@ public class Problem implements Serializable{
 		
 	}
 	
-	//set game domain name
+	/**
+	 * 
+	 * set game domain name
+	 * @param gameDomain
+	 */
 	public void setGameDomain(String gameDomain) {
 		this.gameDomain = new String(gameDomain);
 	}
 
-	//get + set algorithm name name
+	/**
+	 * 
+	 * get and set algorithm name name
+	 * @return algorithm
+	 */
 	public String getAi() {
 		return ai;
 	}
@@ -42,7 +50,10 @@ public class Problem implements Serializable{
 		this.ai = new String (ai);
 	}
 	
-	//get and set hard level
+	/**
+	 * get and set hard level
+	 * @return hardLevel
+	 */
 	public int getHardLevel() {
 		return hardLevel;
 	}
@@ -50,7 +61,10 @@ public class Problem implements Serializable{
 		this.hardLevel = hardLevel;
 	}
 	
-	//get and set game state
+	/**
+	 * get and set game state
+	 * @return gameState
+	 */
 	public State getGame() {
 		return gameState;
 	}
@@ -58,7 +72,6 @@ public class Problem implements Serializable{
 		this.gameState = game;
 	}
 	
-	//get + set
 	public int getStatus() {
 		return status;
 	}
