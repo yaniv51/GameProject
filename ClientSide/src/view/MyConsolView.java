@@ -5,6 +5,7 @@ package view;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Scanner;
+
 import model.algorithm.State;
 
 
@@ -88,5 +89,29 @@ public class MyConsolView extends Observable implements View {
 	public void printHint(String hint) {
 		System.out.println(hint);
 		//this.setUserPoints();
+	}
+
+	@Override
+	public void setButtonSelection(String action) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeLableText(int playerScore, int computerScore) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getExeptionMessage(String e) {
+		System.out.println(e);
+		
+	}
+
+	@Override
+	public void insertProperties() {
+		// TODO Auto-generated method stub
+		
 	}
 }

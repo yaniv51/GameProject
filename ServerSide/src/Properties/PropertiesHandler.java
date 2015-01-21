@@ -10,21 +10,26 @@ public class PropertiesHandler  {
 
 	final static String fileName = "Properties.xml";
 
-	public MyProperties writeProperties(MyProperties properties) {
+	/**
+	 * <hl> writeProperties <hl> <p> 
+	 *  Write properties to XML file
+	 *  @param properties Current properties to save
+	 *  @throws FileNotFoundException If file not found
+	 */
+	public void writeProperties(MyProperties properties) throws FileNotFoundException {
 			XMLEncoder writeXml = null;
-			try {
-				writeXml = new XMLEncoder((new FileOutputStream(fileName)));
-				writeXml.writeObject(properties);
-				writeXml.close();
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-					
-		return null;
+			writeXml = new XMLEncoder((new FileOutputStream(fileName)));
+			writeXml.writeObject(properties);
+			writeXml.close();
 
 	}
+	
+	/**
+	 * <hl> readProperties <hl> <p> 
+	 *  Read properties from XML file
+	 *  @return properties Current properties that have been loaded
+	 *  @throws FileNotFoundException If file not found
+	 */
 	public MyProperties readProperties () throws FileNotFoundException {
 			XMLDecoder readXml = null;
 			readXml = new XMLDecoder(new FileInputStream(fileName));

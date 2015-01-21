@@ -1,15 +1,17 @@
 package model.algorithm;
 
 import static org.junit.Assert.*;
-import model.domain.TicTacToeState;
-
 import org.junit.Test;
-
+import model.domain.TicTacToeState;
 public class MiniMaxAlphaBetaTest {
 
+	/**
+	 * <hl>testFirstLayer<hl> <p> 
+	 * Generate new board and test algorithm move <p>Next computer move must block player at 2,2<p>
+	 */
 	@Test
 	public void testFirstLayer() {
-		// generate new board -> next computer move must block player at 2,2
+		// generate new board
 		int board[][] = new int[][] { { 1, 0, 0, }, { 2, 1, 0 }, { 0, 0, 0, } };
 		TicTacToeState state = new TicTacToeState(2, board, 10, 3, 0);
 		MiniMaxAlphaBeta ai = new MiniMaxAlphaBeta();
@@ -19,9 +21,13 @@ public class MiniMaxAlphaBetaTest {
 		assertEquals(22, move);
 	}
 
+	/**
+	 * <hl>testFirstLayer1<hl> <p> 
+	 * Generate new board and test algorithm move <p>Next computer move must win at this turn at 0,2<p>
+	 */
 	@Test
 	public void testFirstLayer1() {
-		// generate new board -> next computer move must win at this turn at 0,2
+		// generate new board
 		int board[][] = new int[][] { { 1, 1, 0, }, { 1, 2, 0 }, { 2, 0, 0, } };
 		TicTacToeState state = new TicTacToeState(2, board, 10, 3, 0);
 		MiniMaxAlphaBeta ai = new MiniMaxAlphaBeta();

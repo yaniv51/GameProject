@@ -54,7 +54,7 @@ public class TicTacToeGameDomain implements GameDomain {
 		int turn;
 		boolean validMove = game.validMove(row, column); ;
 		if(validMove == false)
-			throw new Exception("not a valid move");
+			throw new Exception("Not a legal move");
 		
 		turn = 1;
 		game.setTurn(turn);

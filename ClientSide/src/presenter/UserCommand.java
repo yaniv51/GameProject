@@ -1,6 +1,8 @@
 package presenter;
 
+import java.io.IOException;
 import java.util.HashMap;
+
 import model_.Model;
 
 public class UserCommand {
@@ -15,11 +17,13 @@ public class UserCommand {
 		userCommands.put("insert", new UserSetActionCommand());
 		userCommands.put("hint", new getHintCommand());
 		userCommands.put("exit", new DisconnectCommand());
+		userCommands.put("open", new OpenPropertiesCommand());
 	}
 
 	public void getCommands(Model gameModel, String select, String selection) throws Exception {
 		
 		Command command = userCommands.get(select);
+		
 		if(command == null)
 			throw new Exception("not a legal command");
 		if (selection == null) // impossible if enter play/exit
@@ -31,7 +35,7 @@ public class UserCommand {
 	//command interface
 	private interface Command {
 
-		void doCommand(Model gameModel, String select);
+		void doCommand(Model gameModel, String select) throws Exception;
 
 	}
 
@@ -59,7 +63,7 @@ public class UserCommand {
 	//user action point command
 	private class UserSetActionCommand implements Command {
 		@Override
-		public void doCommand(Model gameModel, String select) {
+		public void doCommand(Model gameModel, String select) throws Exception {
 			String[] points = select.split(",");
 			int row = Integer.parseInt(points[0]);
 			int column = Integer.parseInt(points[1]);
@@ -71,7 +75,7 @@ public class UserCommand {
 	private class DisconnectCommand implements Command {
 
 		@Override
-		public void doCommand(Model gameModel, String select) {
+		public void doCommand(Model gameModel, String select) throws IOException {
 				gameModel.saveGame();
 		}
 	}
@@ -80,14 +84,18 @@ public class UserCommand {
 	private class getHintCommand implements Command {
 
 		@Override
-		public void doCommand(Model gameModel, String select) {
-	
-			//send to server request to get an hint
-			
-			
+		public void doCommand(Model gameModel, String select) throws Exception {
+			gameModel.getHint();
 		}
 	}
 
+	private class OpenPropertiesCommand implements Command {
+
+		@Override
+		public void doCommand(Model gameModel, String select) throws Exception {
+			gameModel.loadPropertiesFromFile(select);
+		}
+	}
 
 
 }

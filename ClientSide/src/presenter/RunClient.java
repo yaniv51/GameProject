@@ -1,21 +1,21 @@
 package presenter;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
-
 import properties.MyProperties;
 import properties.PropertiesHandler;
-import model_.MyModel;
 import tasks.TaskRunnable;
 import view.MyConsolView;
 
 
+@SuppressWarnings("unused")
 public class RunClient {
 	
-	public static void main(String[] args) throws IOException {
+/*	public static void main(String[] args) throws IOException {
 		Scanner scan = new Scanner(System.in);
 		boolean error = false;
 		
@@ -44,6 +44,7 @@ public class RunClient {
 		outToServer.flush();
 		MyModel model = new MyModel(myServer.getInputStream(), myServer.getOutputStream());
 		MyConsolView view = new MyConsolView();
+		//BoardGameWindow view = new BoardGameWindow();
 		Presenter presenter = new Presenter(model, view);
 
 		model.addObserver(presenter);
@@ -58,7 +59,7 @@ public class RunClient {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+	
 		//check if failed to open XML file
 		if(error == true)
 			ph.writeProperties(properties);
@@ -68,6 +69,6 @@ public class RunClient {
 		myServer.close();
 		scan.close();
 		System.out.println("bye bye");
-	}
+	}*/
 }
 

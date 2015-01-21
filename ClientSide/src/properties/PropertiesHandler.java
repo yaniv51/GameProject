@@ -33,4 +33,13 @@ public class PropertiesHandler {
 			readXml.close(); 
 			return properties;
 		}
+
+	public MyProperties readPropertiesFromFile(String dest) throws FileNotFoundException {
+
+		XMLDecoder readXml = null;
+		readXml = new XMLDecoder(new FileInputStream(dest));
+		MyProperties properties = (MyProperties) readXml.readObject();
+		readXml.close();
+		return properties;
 	}
+}

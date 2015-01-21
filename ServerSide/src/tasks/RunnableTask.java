@@ -4,6 +4,10 @@ public class RunnableTask implements Runnable{
 
 	ServerTask t;
 
+	/**
+	 * <hl> RunnableTask constructor <hl> <p> 
+	 *  @param task server task for threads
+	 */
 	public RunnableTask(ServerTask task) {
 		t = task;
 	}
@@ -13,6 +17,10 @@ public class RunnableTask implements Runnable{
 		t.doTask();
 	}
 	
+	/**
+	 * <hl> stop <hl> <p> 
+	 *  stop server thread
+	 */
 	public void stop() {
 		t.stop();
 	}

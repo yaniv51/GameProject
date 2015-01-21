@@ -1,8 +1,10 @@
 package presenter;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+
 import view.View;
 import model_.Model;
 
@@ -37,10 +39,16 @@ public class Presenter implements Observer {
 				} 
 				else 
 					if(arg1 != null)
-						if(arg1.toString().equals("Computer Turn")) // if not check if computer didn't play yet ) {
-							model.solveDomain(); 
+						if(arg1.toString().equals("Computer Turn"))
+							try {
+								model.solveDomain();
+							} catch (ClassNotFoundException | IOException e) {
+								ui.getExeptionMessage(e.getMessage());
+							}
+						else 
+							ui.getExeptionMessage((String)arg1);
 					else // if not get user action
-						ui.setUserPoints(); 
+					ui.setUserPoints(); 
 				}
 			}
 
@@ -49,6 +57,11 @@ public class Presenter implements Observer {
 			String arr[] = action.split(" ");
 			// start play - player first -> get player action
 			if (arr[0].equals("play")) {
+				try {
+					model.loadProperties();
+				} catch (FileNotFoundException e) {
+					ui.insertProperties();
+				}
 				ui.displayCurrentState(model.getState());
 				ui.setUserPoints();
 			} else {
@@ -60,13 +73,10 @@ public class Presenter implements Observer {
 				else
 					commands.getCommands(model, arr[0], null);
 				} catch (Exception e) {
-					e.printStackTrace();
-					try {
-						ui.startView();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
+					ui.getExeptionMessage(e.getMessage());
+
 				}
+				
 			}
 		}
 	}

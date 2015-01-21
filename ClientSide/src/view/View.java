@@ -2,6 +2,7 @@ package view;
 
 
 import java.io.IOException;
+
 import tasks.Task;
 import model.algorithm.State;
 
@@ -13,5 +14,8 @@ public interface View extends Task {
 	public String getUserAction();
 	public void gameOver(int gameOver);
 	public void printHint(String hint);
-	
+	public void setButtonSelection(String action);
+	public void changeLableText(int playerScore,int computerScore);
+	public void getExeptionMessage(String message);
+	public void insertProperties();
 }

@@ -5,8 +5,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-
-import model_.Model;
 import model_.MyModel;
 import model_.Problem;
 import model_.Solution;
@@ -14,10 +12,14 @@ import model_.Solution;
 public class GameClientHandler implements ClientHandler {
 
 	boolean stop = false;
-	Model model;
+	MyModel model;
 	Solution solution;//
 	Problem problam;//
 	
+	/**
+	 * <hl> GameClientHandler constructor <hl> <p> 
+	 * Initialized all variables<p>
+	 */
 	public GameClientHandler() {
 		stop = false;
 		model = new MyModel();
@@ -30,15 +32,11 @@ public class GameClientHandler implements ClientHandler {
 		try {
 			InputStream in = someclient.getInputStream();
 			OutputStream out = someclient.getOutputStream();
-			int count = 0;
 			Problem problam = new Problem();
-			
-			System.out.println("wait for client problem 0");
 			problam = (Problem) new ObjectInputStream(in).readObject();
-			System.out.println("Receive new problam");//
 			while ((stop == false) && (!(problam.getStatus() == 4))) {
+				//check problem status -> 1 new game, 2 current game, 3 hint, 4 disconnect
 				if (problam.getStatus() == 1){
-					System.out.println("run by Status 1");
 					model.selectDomain(problam.getGameDomain());
 					model.selectAlgorithm(problam.getAi());
 					model.setHardLevel(problam.getHardLevel());
@@ -46,25 +44,29 @@ public class GameClientHandler implements ClientHandler {
 					solution = model.getSolution();
 				}
 				if (problam.getStatus() == 2){
-					System.out.println("run by Status 2");
 					model.solveDomain(problam.getGame());
 					solution = model.getSolution();
 				}
 				
 				if (problam.getStatus() == 3){
-					System.out.println("run by Status 3");
 					model.getHint();
 				}				
 				// send solution to client
-				new ObjectOutputStream(out).writeObject(solution);
-				out.flush();
-
-				System.out.println("wait for client problem " + count);
+				if (problam.getStatus() != 3) {
+					new ObjectOutputStream(out).writeObject(solution);
+					out.flush();
+				}
+				else
+				{
+					String hint = model.getHintString();
+					new ObjectOutputStream(out).writeObject(hint);
+				}
+				
 				problam = (Problem) new ObjectInputStream(in).readObject();
-				System.out.println("send the problam");//
 			}
 			
 		//	model.saveGame();
+			System.out.println("client disconnected");
 			someclient.close();
 			
 		} catch (Exception e) {
@@ -81,8 +83,7 @@ public class GameClientHandler implements ClientHandler {
 
 	@Override
 	public void stop() {
-		
-
+		stop = true;
 	}
 
 }

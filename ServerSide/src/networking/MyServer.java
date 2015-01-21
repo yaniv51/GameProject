@@ -19,6 +19,12 @@ public class MyServer implements ServerTask {
 	ClientHandler ch;
 	volatile boolean stop;
 
+	/**
+	 * <hl> MyServer constructor <hl> <p> 
+	 * initialized all variables<p>
+	 *  @param port local port of server
+	 *  @param numOfClients number of possible clients
+	 */
 	public MyServer(int port, int numOfClients) throws IOException {
 			server = new ServerSocket(port);
 			executors = Executors.newFixedThreadPool(numOfClients);
@@ -26,12 +32,17 @@ public class MyServer implements ServerTask {
 			stop = false;
 	}
 
+	/**
+	 * <hl> startServer <hl> <p> 
+	 * Main loop of server.<p> after client connected check for what and pass the client for clinetHandler to get what client want.
+	 * @throws IOException  Can be errors when: read from client, set timeOut
+	 */
 	public void startServer() throws IOException {
 		String line = null;
-		this.server.setSoTimeout(1000000);
+		this.server.setSoTimeout(10000);
 
 		while (!(stop)) {
-			System.out.println("waiting for client");
+			System.out.println("Waiting for client...");
 			Socket someclient = null;
 			try {
 				someclient = server.accept();
@@ -40,8 +51,8 @@ public class MyServer implements ServerTask {
 			}
 			
 			if (someclient != null) {
-				System.out.println(someclient.toString());
-				System.out.println("client connected");
+				System.out.println("Client Ip: "+someclient.getInetAddress()+" Client Port: "+someclient.getPort()+" Local Port: "+someclient.getLocalPort());
+				System.out.println("Client connected");
 				BufferedReader clientIn = new BufferedReader(new InputStreamReader(someclient.getInputStream()));
 				while(! (line = clientIn.readLine()).equals("exit")  )
 					break;
@@ -69,6 +80,7 @@ public class MyServer implements ServerTask {
 		
 	}
 
+	
 	@Override
 	public void stop() {
 		stop = true;

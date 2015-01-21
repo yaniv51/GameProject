@@ -43,7 +43,7 @@ public class ReversiGameDomain implements GameDomain {
 		
 		boolean valid = game.isValid(row, column, game.getTurn());
 		if(valid == false)
-			throw new Exception("not a legal move");
+			throw new Exception("Not a legal move");
 		//if is empty - there are no moves
 		if(game.getBlackMoves().isEmpty() == true)
 			return -1;

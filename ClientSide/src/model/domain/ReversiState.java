@@ -239,7 +239,7 @@ public class ReversiState extends State {
 								continue;
 							
 							//check every direction of the board - if the next cell at the same direction is opponent cell we have to continue checking
-							//חריגהה
+
 							for(x = row+newRow, y=column+newColumn;(boardGame[x][y] == opponent)&&(x+newRow>-1)&& (x+newRow<this.getSize())&&(y+newColumn>-1)&&(y+newColumn<this.getSize()); x+=newRow, y+=newColumn){
 								if(boardGame[x+newRow][y+newColumn] == val)
 									//if the next cell at the same direction is our cell - possible move
