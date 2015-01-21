@@ -17,12 +17,22 @@ public class ReversiState extends State {
 	ArrayList<Integer> blackMoves;
 	ArrayList<Integer> whiteMoves;
 	
-	//default c'tor for serializable
+	/**
+	 * <h1> ReversiState <h1> <p>
+	 * 
+	 * default c'tor for serializable
+	 * 
+	 */
 	public ReversiState() {
 		super();
 	}
 	
-	//c'tor
+	/**
+	 *  <h1> ReversiState <h1> <p>
+	 * the C'tor of the class
+	 * 
+	 * @param size - the size of the board game
+	 */
 	public ReversiState(int size) {
 		super(size);
 		//set black
@@ -45,7 +55,20 @@ public class ReversiState extends State {
 		this.possibleMoves(this.getTurn());
 	}
 	
-	//c'tor
+	/**
+	 *  <h1> ReversiState <h1> <p>
+	 * the C'tor of the ReversiState 
+	 * 
+	 * @param turn 
+	 * @param board - the board game 
+	 * @param lastMove - the last turn  in the game (witch point played in the last turn) 
+	 * @param size - the size of the game board
+	 * @param score - the game score 
+	 * @param white - white score 
+	 * @param black - Black score
+	 * @param whiteMoves - white possible moves
+	 * @param blackMoves - black possible moves
+	 */
 	public ReversiState(int turn, int[][] board,int lastMove, int size, int score, int white, int black, ArrayList<Integer> whiteMoves, ArrayList<Integer> blackMoves) {
 		super(turn, board, lastMove, size, score);
 		whiteScore = white;
@@ -58,8 +81,7 @@ public class ReversiState extends State {
 			this.blackMoves.add(num);
 	}
 
-	//taken from
-	//https://github.com/kartikkukreja/blog-codes/blob/master/src/Heuristic%20Function%20for%20Reversi%20%28Othello%29.cpp
+	
 	@Override
 	public int Hfunc(int agent) {
 		int myTiles = 0, oppTiles = 0, i, j;
@@ -201,7 +223,12 @@ public class ReversiState extends State {
 		return (int)score;
 	}
 	
-	//find all moves
+	/**
+	 * 
+	 * find all the possible moves for the current turn
+	 * @param val - the turn in the game 
+	 * @return the moves the player can do
+	 */
 	public int possibleMoves(int val) {
 		blackMoves.clear();
 		whiteMoves.clear();
@@ -306,7 +333,15 @@ public class ReversiState extends State {
 		return moves;
 	}
 
-	//get point and check if move is valid
+	/**
+	 * 
+	 * the method get the point and check if move is valid
+	 * 
+	 * @param row - the row in the game board 
+	 * @param column - the column in the game board 
+	 * @param turn 
+	 * @return if the move is valid
+	 */
 	public boolean isValid(int row, int column, int turn) {
 		//check if cell is empty
 		if(this.boardGame[row][column] != 0)
@@ -385,7 +420,14 @@ public class ReversiState extends State {
 
 	}
 	
-	//check vertical after input point and change score and board if necessary
+	/**
+	 * 
+	 * check vertical after input point and change score and board if necessary
+	 * 
+	 * @param row
+	 * @param column
+	 * @param val - turn
+	 */
 	public void checkNchangeVertical(int row, int column, int val) {
 		
 		int countDown = 0;
@@ -477,7 +519,14 @@ public class ReversiState extends State {
 			
 	}
 	
-	//check horizontal after input point and change score and board if necessary
+	/**
+	 * 
+	 * check horizontal after input point and change score and board if necessary
+	 * 
+	 * @param row
+	 * @param column
+	 * @param val
+	 */
 	public void checkNchangeHorizontal(int row, int column, int val) {
 		int countLeft = 0;
 		int countRight = 0;
@@ -566,7 +615,14 @@ public class ReversiState extends State {
 			}	
 	}
 	
-	//check oblique after input point and change score and board if necessary
+	/**
+	 * 
+	 * check oblique after input point and change score and board if necessary
+	 * 
+	 * @param row
+	 * @param column
+	 * @param val
+	 */
 	public void checkNchangeOblique(int row, int column, int val) {
 		int row1, columnLeft,columnRight;
 		boolean foundLeft, foundRight;
@@ -804,7 +860,11 @@ public class ReversiState extends State {
 	}
 
 	
-	//clone state
+	/**
+	 * set clone state
+	 * 
+	 * @param state
+	 */
 	public void cloneState(ReversiState state) {
 		this.setBoardGame(state.getBoardGame());
 		this.setTurn(state.getTurn());

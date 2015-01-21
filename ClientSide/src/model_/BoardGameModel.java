@@ -39,7 +39,11 @@ public class BoardGameModel extends Observable implements Model {
 	private boolean haveConnection;
 	private boolean propertiesLoaded;
 	
-	// c'tor
+	/**
+	 * <h1> BoardGameModel <h1> <p>
+	 *  the C'tor will initialization all the parameters of the class
+	 * 
+	 */
 	public BoardGameModel() {
 		algorithmFactory = new algorithmFactory();
 		gameFactory = new GameDomainFactory();
@@ -53,8 +57,12 @@ public class BoardGameModel extends Observable implements Model {
 		haveConnection = false;
 		propertiesLoaded = false;
 	}
-	
-	//load properties
+	/**
+	 * <h1> LoadProperties <h1> <p>
+	 * the method will load the properties from the XML file
+	 * 
+	 */
+
 	public void loadProperties() throws FileNotFoundException {
 		if(propertiesLoaded == false) {
 			properties = properHendler.readProperties();
@@ -62,33 +70,56 @@ public class BoardGameModel extends Observable implements Model {
 		}
 	}
 
-	// get domain name and use domain factory for getting the right domain
+	/**
+	 *  <h1> SelectDomain <h1> <p>
+	 * the method will generate Domain by the String that it receive<p>
+	 * if getStatus() function equal to 1 - it is mean that is the first turn of of the player. 
+	 * otherwise, the method will update the Problem method with the changes that occurred in the game. 
+	 * @param String domainName - contain a string with the name of the Domain that the user wish to active. <p>  
+	 * 
+	 */
+	
 	@Override
 	public void selectDomain(String domainName) {
 		game = this.gameFactory.createGame(domainName);
-		if(prob.getStatus() != 1) // if client choose to start again a game after finished, initialized new Problem
+		if(prob.getStatus() != 1)
 			prob = new Problem();
 		prob.setGameDomain(domainName);
 		firstConnection = true;
 	}
 
-	// get algorithm name and use algorithm factory for getting the right
+	/**
+	 * <h1> SelectAlgorithm <h1> <p>
+	 * the method use algorithm factory for getting the right algoritam.
+	 * @param String algorithmName -  will contain the algoritam the user wish to active<p>
+	 *
+	 */
 	@Override
 	public void selectAlgorithm(String algorithmName) {
 		ai = this.algorithmFactory.createAlgorithm(algorithmName);
-		//set problem algorithm
 		prob.setAi(algorithmName);
 	}
 
-	// manage game
+	/**
+	 *  <h1> GameManager <h1> <p>
+	 *   the method will set the player turn and notify about the changes to the presenter.
+	 * @param int row & int column - is the point that the user choose to play
+	 * 
+	 */
+	
+	
 	public void gameManager(int row, int column) throws Exception {
-		// set player turn
 		gameOver = game.playerTurn(row, column);
-		// have a solution - notify
 		this.setChanged();
 		this.notifyObservers("Computer Turn");
 	}
 
+	/**
+	 *  <h1> solveDomain <h1> <p>
+	 * the method will solve the game  
+	 * 
+	 */
+	
 	@Override
 	public void solveDomain() throws IOException, ClassNotFoundException {
 		if((firstConnection == true) && (haveConnection == false)) {
@@ -137,6 +168,14 @@ public class BoardGameModel extends Observable implements Model {
 		this.notifyObservers();
 	}
 
+	/**
+	 * <h1> saveGame <h1> <p>
+	 * 
+	 * the method will be active when user enter "exit". <p>
+	 * the method will finish connection with the server.
+	 * 
+	 */
+	
 	// when user enter "exit" -> send to server finish connection
 	public void saveGame() throws IOException  {
 		//make new problem to be the smallest that possible
@@ -147,29 +186,50 @@ public class BoardGameModel extends Observable implements Model {
 		properHendler.writeProperties(properties);
 	}
 
-	// get solution
+	/**
+	 * 
+	 * <h1> getSolution <h1> <p>
+	 * 
+	 * @return the solution of the game.
+	 */
 	public Solution getSolution() {
 		return solution;
 	}
 
-	// get hard level and set at game domain
+	/**
+	 * <h1> setHardLevel<h1> <p>
+	 * get hard level and set at game domain
+	 * 
+	 * @param int depth - Hard level of the game.   
+	 */
 	public void setHardLevel(int depth) {
 		this.hardLevel = depth;
 		game.setDepth(this.hardLevel);
 		prob.setHardLevel(depth);
 	}
 
-	// return if there is a winner/draw/more moves
+	/**
+	 * <h1> getGameOver <h1> <p>
+	 *  @return the result of the game(winner/draw/more moves)
+	 * 
+	 */
 	public int getGameOver() {
 		return this.gameOver;
 	}
 
-	// return current game state
+	/**
+	 * <h1> getState <h1> <p>
+	 *  @return current game state
+	 */
 	public State getState() {
 		return game.getState();
 	}
 
-	// get hint for user turn
+	/**
+	 * <h1> getHint <h1> <p>
+	 * the method will get hint(next move) for the user turn.
+	 * 
+	 */
 	@Override
 	public void getHint() throws Exception {
 		// send server client want an hint
@@ -190,8 +250,11 @@ public class BoardGameModel extends Observable implements Model {
 		this.setChanged();
 		this.notifyObservers();
 	}
-
-	// return hint and before return change original data member to empty string
+	/**
+	 * 
+	 * return hint and before return change original data member to empty string
+	 * 
+	 */
 	public String getHintString() {
 		String hint = new String();
 		if (hintGame.isEmpty() == false) {
@@ -200,7 +263,12 @@ public class BoardGameModel extends Observable implements Model {
 		}
 		return hint;
 	}
-
+	/**
+	 *  the method will connect to the server and send to it the "OutOfServer" class.
+	 * 
+	 */
+	
+	
 	@Override
 	public void connectToServer() {
 		//connect new server
@@ -228,6 +296,12 @@ public class BoardGameModel extends Observable implements Model {
 		haveConnection = true;
 	}
 
+	
+	/**
+	 * 
+	 * the method will disconnect from the server
+	 * 
+	 */
 	@Override
 	public void disconnect() throws IOException {
 		//disconnect after finished
@@ -236,7 +310,10 @@ public class BoardGameModel extends Observable implements Model {
 		myServer.close();
 	}
 
-	//get file destination from view and load xml file
+	/**
+	 *the method will get file destination from view and load xml file
+	 */
+	
 	@Override
 	public void loadPropertiesFromFile(String dest) throws FileNotFoundException {
 		if(propertiesLoaded == false){

@@ -10,13 +10,22 @@ public class algorithmFactory {
 	
 	private HashMap<String, algorithmCreator> algorithms;
 	
+	/**
+	 * <h1> AlgorithmFactory <h1> <p>
+	 *  C'tor that create algorithms in O(n) memory
+	 */
 	public algorithmFactory() {
-		//put algorithm  O(n) memory
+		
 		algorithms = new HashMap<String, algorithmFactory.algorithmCreator>();
 		algorithms.put("MiniMax", new miniMaxCreator());
 		algorithms.put("MiniMaxAlphaBeta", new miniMaxAlphaBetaCreator());
 	}
-	
+	/**
+	 * <h1> CreateAlgorithm <h1> <p>
+	 *  the method will get a String that contain the name of the algorithm the user wish to create in O(1) time
+	 *  @param String algorithmName - contain the Algorithm Name
+	 *  @return the method will return the algorithm the user requested 
+	 */
 	public AI createAlgorithm(String algorithmName) {
 		//get algorithm in O(1) time
 		algorithmCreator creator = algorithms.get(algorithmName);
@@ -26,10 +35,18 @@ public class algorithmFactory {
 		return ai;
 		
 	}
-	
+
 	private interface algorithmCreator {
 		public AI create();
 	}
+	
+	/**
+	 * <h1> miniMaxCreator <h1> <p>
+	 * 
+	 * the class will implement the create() method  
+	 * MinMax()method create the MinMax Algorithm 
+	 * @return MinMax Algorithm
+	 */
 	
 	//creator for minimax algorithm
 	private class miniMaxCreator implements algorithmCreator {
@@ -38,7 +55,12 @@ public class algorithmFactory {
 			return new MiniMax();
 		}
 	}
-	
+	/**
+	 * <h1> miniMaxAlphaBetaCreator <h1> <p>
+	 *  the class will implement the create() method  
+	 * miniMaxAlphaBeta() method create the miniMaxAlphaBeta Algorithm 
+	 * @return miniMaxAlphaBeta Algorithm
+	 */
 	//creator for minimaxAlphaBeta algorithm
 	private class miniMaxAlphaBetaCreator implements algorithmCreator {
 		@Override

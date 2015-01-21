@@ -14,16 +14,33 @@ public class TicTacToeState extends State {
 	 */
 	private static final long serialVersionUID = -7647010730076072159L;
 
-	//c'tors
+	/**
+	 * <h1> TicTacToeState<h1> <p>
+	 * C'tor of the TicTacToeState class
+	 * 
+	 */
 	public TicTacToeState() {
 		super();
 	}
-	
+	/**
+	 * <h1> TicTacToeState<h1> <p>
+	 * C'tor of the TicTacToeState class
+	 * @param int size - the size of the game board 
+	 */
 	public TicTacToeState(int size) {
 		super(size);
 	}
 	
-	//c'tor
+	/**
+	 * <h1> TicTacToeState<h1> <p>
+	 * 
+	 * 
+	 * @param turn - turn = 1 -> Player turn | turn = 1 -> Computer turn.<p>
+	 *  board the boardGame Matrix <p>
+	 *  lastMove - the lastmove means the point that choose in the last turn.<p>
+	 *  size - the size of matrix <p>
+	 *  score - the score of the game <p>
+	 */
 	public TicTacToeState(int turn, int[][] board,int lastMove, int size, int score) {
 		super(turn, board, lastMove, size, score);
 	}
@@ -223,7 +240,12 @@ public class TicTacToeState extends State {
 		
 	}
 	
-	//if if there is a winner from rows
+	/**
+	 * <h1> rowWinner <h1> <p>
+	 *  the method will check if there is a winner from rows
+	 * 
+	 * @return
+	 */
 	public int rowWinner() {
 		int counter1 = 0;
 		int counter2 = 0;
@@ -249,7 +271,12 @@ public class TicTacToeState extends State {
 		return 0;
 	}
 	
-	//if if there is a winner from columns
+	/**
+	 * <h1> rowColumn <h1> <p>
+	 *  the method will check if there is a winner from columns
+	 * 
+	 * @return
+	 */
 	public int columnWinner() {
 		int row = 0;
 		int column = 0;
@@ -275,7 +302,12 @@ public class TicTacToeState extends State {
 		return 0;
 	}
 	
-	//if if there is a winner from oblique
+	/**
+	 * <h1> obliqueWinner <h1> <p>
+	 *  the method will check if there is a winner from oblique
+	 * 
+	 * @return
+	 */
 	public int obliqueWinner() {
 		if   ((this.boardGame[0][0] == this.boardGame[1][1]) && (this.boardGame[1][1] == this.boardGame[2][2])&& (this.boardGame[0][0]!= 0)) {
 			if ( this.boardGame[0][0] == 1 )
@@ -320,6 +352,12 @@ public class TicTacToeState extends State {
 		}
 
 	}
+	/**
+	 * <h1> generateRandomCell <h1> <p> 
+	 * the method will generate Random Cell from the first turn 
+	 * 
+	 */
+	
 	
 	public void generateRandomCell()
 	{
@@ -329,7 +367,16 @@ public class TicTacToeState extends State {
 		this.setCell(x, y, this.getTurn());
 	}
 
-	//check if the move is valid
+	
+	/**
+	 * 
+	 * the method get the point and check if move is valid
+	 * 
+	 * @param row - the row in the game board 
+	 * @param column - the column in the game board 
+	 * @return if the move is valid - true 
+	 * else false 
+	 */
 	public boolean validMove(int row, int column)
 	{
 		if(( row > 2) || (column > 2) )
@@ -339,7 +386,11 @@ public class TicTacToeState extends State {
 		return true;
 	}
 
-	//clone the state
+	/**
+	 * set clone state
+	 * 
+	 * @param state
+	 */
 	public void cloneState(TicTacToeState state)
 	{
 		this.setBoardGame(state.getBoardGame());

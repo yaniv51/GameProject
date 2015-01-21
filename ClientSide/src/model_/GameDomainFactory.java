@@ -9,13 +9,23 @@ import model.domain.TicTacToeGameDomain;
 public class GameDomainFactory {
 	private HashMap<String, gameDomainCreator> CreateGameDomain;
 	
-	//c'tor
+	/**
+	 * <h1> AlgorithmFactory <h1> <p>
+	 *  C'tor that create GameDomain in O(n) memory
+	 */
 	public GameDomainFactory() {
-		//put gameDomain -  O(n) memory
+		
 		CreateGameDomain = new HashMap<String, GameDomainFactory.gameDomainCreator>();
 		CreateGameDomain.put("TicTacToe" , new ticTacToeCreator());
 		CreateGameDomain.put("Reversi", new CreatorReversi());
 	}
+	
+	/**
+	  * <h1> createGame <h1> <p>
+	 *  the method will get a String that contain the name of the Game that the user wish to create in O(1) time
+	 *  @param String gameDomainName - contain the Game Name
+	 *  @return the method will return the GameDomain the user requested 
+	 */
 	
 	public GameDomain createGame(String gameDomainName) {
 		//get gameDomain in O(1) time
@@ -31,13 +41,26 @@ public class GameDomainFactory {
 		public GameDomain create(); 
 	}
 	
+	/**
+	 * <h1> miniMaxCreator <h1> <p>
+	 * 
+	 * the class will implement the create() method  
+	 * TicTacToeGameDomain() method create the TicTacToe Game  
+	 * @return TicTacToe Game
+	 */
 	private class ticTacToeCreator implements gameDomainCreator {
 		@Override
 		public GameDomain create() {
 			return new TicTacToeGameDomain();
 		}
 	}
-	
+	/**
+	 * <h1> CreatorReversi <h1> <p>
+	 * 
+	 * the class will implement the create() method  
+	 * ReversiGameDomain() method create the Reversi Game  
+	 * @return Reversi Game
+	 */
 	private class CreatorReversi implements gameDomainCreator {
 		@Override
 		public GameDomain create() {
