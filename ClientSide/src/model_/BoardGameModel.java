@@ -57,18 +57,7 @@ public class BoardGameModel extends Observable implements Model {
 		haveConnection = false;
 		propertiesLoaded = false;
 	}
-	/**
-	 * <h1> LoadProperties <h1> <p>
-	 * the method will load the properties from the XML file
-	 * 
-	 */
 
-	public void loadProperties() throws FileNotFoundException {
-		if(propertiesLoaded == false) {
-			properties = properHendler.readProperties();
-			propertiesLoaded = true;
-		}
-	}
 
 	/**
 	 *  <h1> SelectDomain <h1> <p>
@@ -311,7 +300,7 @@ public class BoardGameModel extends Observable implements Model {
 	}
 
 	/**
-	 *the method will get file destination from view and load xml file
+	 *the method will get file destination from view and load XML file
 	 */
 	
 	@Override
@@ -319,6 +308,19 @@ public class BoardGameModel extends Observable implements Model {
 		if(propertiesLoaded == false){
 			properHendler.readPropertiesFromFile(dest);
 			System.out.println("load sucsesfull");
+			propertiesLoaded = true;
+		}
+	}
+	
+	/**
+	 * <h1> LoadProperties <h1> <p>
+	 * the method will load the properties from the XML file
+	 * 
+	 */
+
+	public void loadProperties() throws FileNotFoundException {
+		if(propertiesLoaded == false) {
+			properties = properHendler.readProperties();
 			propertiesLoaded = true;
 		}
 	}

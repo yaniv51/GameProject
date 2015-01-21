@@ -20,7 +20,7 @@ public class MyServer implements ServerTask {
 	volatile boolean stop;
 
 	/**
-	 * <hl> MyServer constructor <hl> <p> 
+	 * <h1> MyServer constructor <h1> <p> 
 	 * initialized all variables<p>
 	 *  @param port local port of server
 	 *  @param numOfClients number of possible clients
@@ -33,7 +33,7 @@ public class MyServer implements ServerTask {
 	}
 
 	/**
-	 * <hl> startServer <hl> <p> 
+	 * <h1> startServer <h1> <p> 
 	 * Main loop of server.<p> after client connected check for what and pass the client for clinetHandler to get what client want.
 	 * @throws IOException  Can be errors when: read from client, set timeOut
 	 */

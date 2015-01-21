@@ -6,7 +6,7 @@ import model.domain.ReversiState;
 import model.domain.TicTacToeState;
 
 /**
- * <hl> Solution<hl>
+ * <h1> Solution<h1>
  * is serializable class<p> Including state and description
  */
 public class Solution implements Serializable{
@@ -15,7 +15,7 @@ public class Solution implements Serializable{
 	State currentState;
 
 	/**
-	 * <hl> Solution constructor<hl> <p> 
+	 * <h1> Solution constructor<h1> <p> 
 	 * Initialized variables
 	 */
 	public Solution() {
@@ -24,7 +24,7 @@ public class Solution implements Serializable{
 	}
 	
 	/**
-	 * <hl> getDescription<hl> <p> 
+	 * <h1> getDescription<h1> <p> 
 	 * @return description of solution
 	 */
 	public String getDescription(){
@@ -32,7 +32,7 @@ public class Solution implements Serializable{
 	}
 	
 	/**
-	 * <hl> setDescription<hl> <p> 
+	 * <h1> setDescription<h1> <p> 
 	 * Set description of a solution
 	 * @param description
 	 */
@@ -41,7 +41,7 @@ public class Solution implements Serializable{
 	}
 	
 	/**
-	 * <hl> getCurrentState<hl> <p> 
+	 * <h1> getCurrentState<h1> <p> 
 	 * @return currentState game state
 	 */
 	public State getCurrentState() {
@@ -49,7 +49,7 @@ public class Solution implements Serializable{
 	}
 	
 	/**
-	 * <hl> setCurrentState<hl> <p> 
+	 * <h1> setCurrentState<h1> <p> 
 	 * Set solution current state from the state that get
 	 * @param currentState game state
 	 */

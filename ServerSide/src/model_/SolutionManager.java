@@ -14,7 +14,7 @@ public class SolutionManager {
 	 private static SolutionManager instance = null; //make class singleton 
 	
 	/**
-	 * <hl> SolutionManager getInstance()  <hl> <p> 
+	 * <h1> SolutionManager getInstance()  <h1> <p> 
 	 * For singleton classes<p>
 	 * @return instance of solution manager
 	 */
@@ -26,7 +26,7 @@ public class SolutionManager {
 	}
 	
 	/**
-	 * <hl> getSolutions <hl> <p> 
+	 * <h1> getSolutions <h1> <p> 
 	 * The method will return the right solution by the description<p>
 	 * @param description String of solution description
 	 * @return solution for the current description
@@ -37,7 +37,7 @@ public class SolutionManager {
 	}
 
 	/**
-	 * <hl> setSolution <hl> <p> 
+	 * <h1> setSolution <h1> <p> 
 	 * 	the method will get solution and add it to the HashMap<p>
 	 * @param solution current solution
 	 */
@@ -48,7 +48,7 @@ public class SolutionManager {
 	}
 	
 	/**
-	 * <hl> WriteSolutionToFile <hl> <p> 
+	 * <h1> WriteSolutionToFile <h1> <p> 
 	 * Method for write the HashMap to file<p>
 	 * @throws IOException If error occurred when writting to file
 	 */
@@ -65,7 +65,7 @@ public class SolutionManager {
 	}
 	
 	/**
-	 * <hl> readSolutionFromFile <hl> <p> 
+	 * <h1> readSolutionFromFile <h1> <p> 
 	 * 	Method for read solutions from file and save in HashMap<p>
 	 * @throws ClassNotFoundException
 	 * @throws IOException

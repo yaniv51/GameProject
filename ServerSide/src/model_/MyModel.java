@@ -17,7 +17,7 @@ public class MyModel {
 	
 	
 	/**
-	 * <hl> MyModel constructor <hl> <p> 
+	 * <h1> MyModel constructor <h1> <p> 
 	 * Initialized all variables<p>
 	 */
 	public MyModel() {
@@ -29,7 +29,7 @@ public class MyModel {
 	}
 	
 	/**
-	 * <hl>selectDomain<hl> <p> 
+	 * <h1>selectDomain<h1> <p> 
 	 * Get domain name and use domain factory for getting the right domain<p>
 	 * @param domainName
 	 */
@@ -38,7 +38,7 @@ public class MyModel {
 	}
 	
 	/**
-	 * <hl> selectAlgorithm<hl> <p> 
+	 * <h1> selectAlgorithm<h1> <p> 
 	 * Get algorithm name and use algorithm factory  for getting the right algorithm<p>
 	 * @param algorithmName
 	 */
@@ -47,7 +47,7 @@ public class MyModel {
 	}
 	
 	/**
-	 * <hl> solveDomain<hl> <p> 
+	 * <h1> solveDomain<h1> <p> 
 	 * Get state and find solution for next turn<p>
 	 * First check if solution is exist, if no find solution and save to HashMap
 	 * @param state for solve
@@ -68,7 +68,7 @@ public class MyModel {
 	}
 	
 	/**
-	 * <hl> getSolution<hl> <p> 
+	 * <h1> getSolution<h1> <p> 
 	 * @return solution
 	 */
 	public Solution getSolution(){
@@ -76,7 +76,7 @@ public class MyModel {
 	}
 
 	/**
-	 * <hl> setHardLevel<hl> <p> 
+	 * <h1> setHardLevel<h1> <p> 
 	 * Get hard level and set at game domain<p>
 	 * @param depth depth for algorithm represent hardLevel
 	 */
@@ -86,7 +86,7 @@ public class MyModel {
 	}
 	
 	/**
-	 * <hl> getHint<hl> <p> 
+	 * <h1> getHint<h1> <p> 
 	 * Get hint for user turn
 	 */
 	public void getHint() {
@@ -95,7 +95,7 @@ public class MyModel {
 	}
 
 	/**
-	 * <hl> getHintString<hl> <p> 
+	 * <h1> getHintString<h1> <p> 
 	 * Return hint and before return change original data member to empty string
 	 * @return hint
 	 */

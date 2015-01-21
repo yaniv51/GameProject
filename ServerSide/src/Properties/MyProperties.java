@@ -3,24 +3,25 @@ package Properties;
 import java.io.Serializable;
 import java.util.Scanner;
 
+/**
+ * <h1>MyProperties<h1><p>
+ * including properties to connect server
+ */
 public class MyProperties implements Serializable{
-	/**
-	 *  
-	 */
+
 	private static final long serialVersionUID = -6531095623050704534L;
 	int port;
 	int numOfClients;
 	
 	/**
-	 * <hl> Constructor <hl> <p> 
+	 * <h1> Constructor <h1> <p> 
 	 *  default constructor for serializable 
 	 */
 	public MyProperties() {
 	}
 	
 	/**
-	 * <hl> Constructor <hl> <p> 
-	 *  
+	 * <h1> Constructor <h1> <p> 
 	 *  @param numOfClients number of possible clients for server <p>
 	 *  @param port local port of server
 	 */
@@ -30,7 +31,7 @@ public class MyProperties implements Serializable{
 	}
 	
 	/**
-	 * <hl> getPort <hl> <p> 
+	 * <h1> getPort <h1> <p> 
 	 *  @return Server local port
 	 */
 	public int getPort() {
@@ -38,7 +39,7 @@ public class MyProperties implements Serializable{
 	}
 	
 	/**
-	 * <hl> setPort <hl> <p> 
+	 * <h1> setPort <h1> <p> 
 	 *  @param port set server local port
 	 */
 	public void setPort(int port) {
@@ -46,7 +47,7 @@ public class MyProperties implements Serializable{
 	}
 
 	/**
-	 * <hl> getNumOfClients <hl> <p> 
+	 * <h1> getNumOfClients <h1> <p> 
 	 *  @return number of possible clients for server
 	 */
 	//get+set number of clients
@@ -55,7 +56,7 @@ public class MyProperties implements Serializable{
 	}
 	
 	/**
-	 * <hl> setNumOfClients <hl> <p> 
+	 * <h1> setNumOfClients <h1> <p> 
 	 *  @param numOfClients set server possible clients
 	 */
 	public void setNumOfClients(int numOfClients) {
@@ -63,7 +64,7 @@ public class MyProperties implements Serializable{
 	}
 
 	/**
-	 * <hl> newProperties <hl> <p> 
+	 * <h1> newProperties <h1> <p> 
 	 *  if failed to load properties, this method will get user opportunity to insert new properties for XML file
 	 */
 	public void newProperties() {

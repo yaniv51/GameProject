@@ -5,12 +5,12 @@ import java.net.Socket;
 public interface ClientTask {
 	
 	/**
-	 * <hl> doTask <hl> <p> 
+	 * <h1> doTask <h1> <p> 
 	 *  @param someclient current client for new task
 	 */
 	public void doTask(Socket someclient);
 	/**
-	 * <hl> stop <hl> <p> 
+	 * <h1> stop <h1> <p> 
 	 *  stop thread
 	 */
 	public void stop();

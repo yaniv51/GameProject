@@ -5,7 +5,7 @@ public class RunnableTask implements Runnable{
 	ServerTask t;
 
 	/**
-	 * <hl> RunnableTask constructor <hl> <p> 
+	 * <h1> RunnableTask constructor <h1> <p> 
 	 *  @param task server task for threads
 	 */
 	public RunnableTask(ServerTask task) {
@@ -18,7 +18,7 @@ public class RunnableTask implements Runnable{
 	}
 	
 	/**
-	 * <hl> stop <hl> <p> 
+	 * <h1> stop <h1> <p> 
 	 *  stop server thread
 	 */
 	public void stop() {

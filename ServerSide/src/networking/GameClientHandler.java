@@ -17,7 +17,7 @@ public class GameClientHandler implements ClientHandler {
 	Problem problam;//
 	
 	/**
-	 * <hl> GameClientHandler constructor <hl> <p> 
+	 * <h1> GameClientHandler constructor <h1> <p> 
 	 * Initialized all variables<p>
 	 */
 	public GameClientHandler() {

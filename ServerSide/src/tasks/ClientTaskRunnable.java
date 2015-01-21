@@ -8,7 +8,7 @@ public class ClientTaskRunnable implements Runnable {
 	Socket someclient;
 	
 	/**
-	 * <hl> ClientTaskRunnable constructor <hl> <p> 
+	 * <h1> ClientTaskRunnable constructor <h1> <p> 
 	 *  @param task client task for threads
 	 *  @param someClient new client for threads
 	 */
@@ -24,7 +24,7 @@ public class ClientTaskRunnable implements Runnable {
 	}
 	
 	/**
-	 * <hl> stop <hl> <p> 
+	 * <h1> stop <h1> <p> 
 	 *  stop client thread
 	 */
 	public void stop() {

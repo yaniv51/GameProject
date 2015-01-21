@@ -11,7 +11,7 @@ public class PropertiesHandler  {
 	final static String fileName = "Properties.xml";
 
 	/**
-	 * <hl> writeProperties <hl> <p> 
+	 * <h1> writeProperties <h1> <p> 
 	 *  Write properties to XML file
 	 *  @param properties Current properties to save
 	 *  @throws FileNotFoundException If file not found
@@ -25,7 +25,7 @@ public class PropertiesHandler  {
 	}
 	
 	/**
-	 * <hl> readProperties <hl> <p> 
+	 * <h1> readProperties <h1> <p> 
 	 *  Read properties from XML file
 	 *  @return properties Current properties that have been loaded
 	 *  @throws FileNotFoundException If file not found
