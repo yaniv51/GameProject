@@ -14,7 +14,13 @@ public class Presenter implements Observer {
 	private View ui;
 	private UserCommand commands;
 
-	// c'tor
+	/**
+	 * <h1> Presenter <h1> <p>
+	 * the C'tor of the Presenter 
+	 * 
+	 * @param model - object of the class BoardGameModel
+	 * @param view - object of the class BoardGameWindow  
+	 */
 	public Presenter(Model model, View view) {
 		this.model = model;
 		this.ui = view;
