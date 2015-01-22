@@ -7,6 +7,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
+/**
+ * <h1> SolutionManager<h1> <p> 
+ * In this class the program will save all solutions that already solved.<p>
+ * Can use read\write to save and load solutions from file.
+ */
 public class SolutionManager {
 	
 	HashMap<String, Solution> HashSolutions ; // the Hash map will save the description of the state of the solution and the Object Solution

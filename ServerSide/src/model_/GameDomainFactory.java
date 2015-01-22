@@ -6,6 +6,10 @@ import model.algorithm.GameDomain;
 import model.domain.ReversiGameDomain;
 import model.domain.TicTacToeGameDomain;
 
+/**
+ * <h1> GameDomainFactory <h1> <p>
+ *  Use factory pattern to find in O(1) time what to do.
+ */
 public class GameDomainFactory {
 	private HashMap<String, gameDomainCreator> CreateGameDomain;
 	

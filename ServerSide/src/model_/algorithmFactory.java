@@ -6,6 +6,10 @@ import model.algorithm.AI;
 import model.algorithm.MiniMax;
 import model.algorithm.MiniMaxAlphaBeta;
 
+/**
+ * <h1> algorithmFactory <h1> <p>
+ *  Use factory pattern to find in O(1) time what to do.
+ */
 public class algorithmFactory {
 	
 	private HashMap<String, algorithmCreator> algorithms;

@@ -6,6 +6,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+/**
+ * <h1> PropertiesHandler <h1> <p> 
+ * Class for load properties from XML file or save properties to XML file 
+ */
 public class PropertiesHandler  {
 
 	final static String fileName = "Properties.xml";

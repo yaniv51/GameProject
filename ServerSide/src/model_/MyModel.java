@@ -4,6 +4,10 @@ import model.algorithm.AI;
 import model.algorithm.GameDomain;
 import model.algorithm.State;
 
+/**
+ * <h1> MyModel <h1> <p> 
+ * Include all methods for play the game / get hint.
+ */
 public class MyModel {
 	private AI ai;
 	private GameDomain game;

@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 import model.algorithm.State;
 
+/**
+ * <h1> Problem<h1>
+ * Is serializable class<p> Including state and description for solve the game state
+ */
 public class Problem implements Serializable{
 	
 	

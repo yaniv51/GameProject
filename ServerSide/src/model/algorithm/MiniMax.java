@@ -2,6 +2,10 @@ package model.algorithm;
 
 import java.util.HashMap;
 
+/**
+ * <h1>MiniMax<h1> <p> 
+ * Implementation of MiniMax algorithm
+ */
 public class MiniMax extends CommonAI {
 
 	//get next states of  first layer - from this layer we'll choose 1 best state
