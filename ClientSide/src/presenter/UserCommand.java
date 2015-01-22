@@ -20,6 +20,16 @@ public class UserCommand {
 		userCommands.put("open", new OpenPropertiesCommand());
 	}
 
+	/**
+	 * <h1> getCommands <h1> <p> 
+	 * 
+	 * the method will get the command of the user by String.
+	 * @param gameModel 
+	 * @param select - the kind of command the user wish to use
+	 * @param selection - the detail about the game we need them to run the game.
+	 * @throws Exception
+	 */
+	
 	public void getCommands(Model gameModel, String select, String selection) throws Exception {
 		
 		Command command = userCommands.get(select);
@@ -32,14 +42,23 @@ public class UserCommand {
 			command.doCommand(gameModel, selection);
 	}
 
-	//command interface
+	/**
+	 * command interface
+	 * 
+	 *
+	 */
 	private interface Command {
 
 		void doCommand(Model gameModel, String select) throws Exception;
 
 	}
 
-	//select game domain command
+	/**
+	 * <h1> SelectDomainCommand <h1> <p> 
+	 * 
+	 * the class will select the game domain command and the hard level of the game.
+	 *
+	 */
 	private class SelectDomainCommand implements Command {
 
 		public void doCommand(Model gameModel, String select) {
@@ -52,15 +71,26 @@ public class UserCommand {
 		}
 
 	}
-
-	//select algorithm command
+	/**
+	 * <h1> SelectDomainCommand <h1> <p> 
+	 * 
+	 * the class will select the algorithm command.
+	 *
+	 */
+	
 	private class SelectAlgorithmCommand implements Command {
 		public void doCommand(Model gameModel, String select) {
 			gameModel.selectAlgorithm(select);
 		}
 	}
 
-	//user action point command
+	/**
+	 *<h1> UserSetActionCommand <h1> <p> 
+	 * 
+	 * when the user wish to choose a point in the game, the class will receive the request and active the the game manager method
+	 * 
+	 *
+	 */
 	private class UserSetActionCommand implements Command {
 		@Override
 		public void doCommand(Model gameModel, String select) throws Exception {
@@ -71,7 +101,11 @@ public class UserCommand {
 		}
 	}
 	
-	//when "exit" entered, save game solutions
+	/**
+	 * <h1> DisconnectCommand <h1> <p> 
+	 * the class will close the game when the user push the exit button
+	 *
+	 */
 	private class DisconnectCommand implements Command {
 
 		@Override
@@ -80,7 +114,11 @@ public class UserCommand {
 		}
 	}
 
-	//get hint command
+	/**
+	 * <h1> getHintCommand <h1> <p> 
+	 * the class will generate a hint by the user request
+	 *
+	 */
 	private class getHintCommand implements Command {
 
 		@Override
@@ -88,7 +126,11 @@ public class UserCommand {
 			gameModel.getHint();
 		}
 	}
-
+	/**
+	 * <h1> OpenPropertiesCommand <h1> <p> 
+	 * the class will load the Properties of the sever.
+	 *
+	 */
 	private class OpenPropertiesCommand implements Command {
 
 		@Override
