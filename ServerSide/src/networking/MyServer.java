@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 import tasks.ClientTaskRunnable;
 import tasks.ServerTask;
 
@@ -20,6 +22,7 @@ public class MyServer implements ServerTask {
 	ExecutorService executors;
 	int numOfClients;
 	int port;
+	private ArrayList <ClientTaskRunnable> clients;
 	ServerSocket server;
 	ClientHandler ch;
 	volatile boolean stop;
@@ -35,6 +38,7 @@ public class MyServer implements ServerTask {
 			executors = Executors.newFixedThreadPool(numOfClients);
 			System.out.println("server alive");
 			stop = false;
+			clients = new ArrayList<ClientTaskRunnable>();
 	}
 
 	/**
@@ -44,6 +48,7 @@ public class MyServer implements ServerTask {
 	 */
 	public void startServer() throws IOException {
 		String line = null;
+		int count = 1;
 		this.server.setSoTimeout(10000);
 
 		while (!(stop)) {
@@ -56,18 +61,18 @@ public class MyServer implements ServerTask {
 			}
 			
 			if (someclient != null) {
-				System.out.println("Client Ip: "+someclient.getInetAddress()+" Client Port: "+someclient.getPort()+" Local Port: "+someclient.getLocalPort());
-				System.out.println("Client connected");
 				BufferedReader clientIn = new BufferedReader(new InputStreamReader(someclient.getInputStream()));
 				while(! (line = clientIn.readLine()).equals("exit")  )
 					break;
-				System.out.println(line);
+				System.out.println("Client Client number "+count+"connected to: "+line+"."+"\nIp: "+someclient.getInetAddress()+" Client Port: "+someclient.getPort()+" Local Port: "+someclient.getLocalPort());
+				count++;
 				if(line.equals("BoardGame") == true)
 				{
 					ch = new GameClientHandler();
 					ClientTaskRunnable r = new ClientTaskRunnable(ch, someclient);
 					Thread t = new Thread(r);
 					executors.execute(t);
+					clients.add(r);	
 				}
 			}
 		}
@@ -88,11 +93,17 @@ public class MyServer implements ServerTask {
 	
 	@Override
 	public void stop() {
+		int i = 0;
 		stop = true;
+		for (ClientTaskRunnable r : clients){
+			r.stop();
+			System.out.println("Close client "+i);
+			i++;
+		}
 		executors.shutdown();
 		try {
 			server.close();
-			System.out.println("server shut down");
+			System.out.println("Server cloed.");
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}

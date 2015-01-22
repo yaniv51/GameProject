@@ -38,7 +38,6 @@ public class BoardGameModel extends Observable implements Model {
 	private boolean firstConnection;
 	private boolean haveConnection;
 	private boolean propertiesLoaded;
-	private boolean haveTurn;
 	
 	/**
 	 * <h1> BoardGameModel <h1> <p>
@@ -57,7 +56,6 @@ public class BoardGameModel extends Observable implements Model {
 		firstConnection = true;
 		haveConnection = false;
 		propertiesLoaded = false;
-		haveTurn = true;
 	}
 
 
@@ -307,9 +305,11 @@ public class BoardGameModel extends Observable implements Model {
 	@Override
 	public void loadPropertiesFromFile(String dest) throws FileNotFoundException {
 		if(propertiesLoaded == false){
-			properHendler.readPropertiesFromFile(dest);
+			properties = properHendler.readPropertiesFromFile(dest);
 			System.out.println("load sucsesfull");
 			propertiesLoaded = true;
+			haveConnection = false;
+			firstConnection = true;
 		}
 	}
 	

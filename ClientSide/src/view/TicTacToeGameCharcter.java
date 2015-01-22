@@ -4,9 +4,12 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.graphics.Image;
 
 public class TicTacToeGameCharcter {
-
-	final Image xImage = new Image(null, "res/tttX.png");
-	final Image oImage = new Image(null, "res/tttO.png");
+	
+	final Image xImage = new Image(null, this.getClass().getClassLoader().getResourceAsStream("view/res/tttX.png"));
+	final Image oImage = new Image(null, this.getClass().getClassLoader().getResourceAsStream("view/res/tttO.png"));
+	
+	//final Image xImage = new Image(null, "res/tttX.png");
+	//final Image oImage = new Image(null, "res/tttO.png");
 
 	/**
 	 * the method will print the X Image and the O Image

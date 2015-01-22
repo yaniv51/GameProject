@@ -4,9 +4,11 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.graphics.Image;
 
 public class ReversiCharacter {
-	final Image reversiRed = new Image(null, "res/redCircle2.png");
-	final Image reversiBlue = new Image(null, "res/blueCircle.png");
+	final Image reversiRed = new Image(null, this.getClass().getClassLoader().getResourceAsStream("view/res/redCircle2.png"));
+	final Image reversiBlue = new Image(null, this.getClass().getClassLoader().getResourceAsStream("view/res/blueCircle.png"));
 	
+	//final Image reversiRed = new Image(null, "res/redCircle2.png");
+	//final Image reversiBlue = new Image(null, "res/blueCircle.png");
 	/**
 	 * <h1> ReversiCharacter<h1> <p>
 	 *  the C'tor of the ReversiCharacter Class

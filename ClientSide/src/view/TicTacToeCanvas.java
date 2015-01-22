@@ -16,7 +16,8 @@ import org.eclipse.swt.widgets.Composite;
  * This class extends BoardCanvas class.
  */
 public class TicTacToeCanvas extends BoardCanvas {
-	final Image tttBack = new Image(null, "res/tttBackRound.png");
+	//final Image tttBack = new Image(null, "res/tttBackRound.png");
+	final Image tttBack = new Image(null, this.getClass().getClassLoader().getResourceAsStream("view/res/tttBackRound.png"));
 	
 	TicTacToeGameCharcter c;
 	Button[][] button;

@@ -21,8 +21,10 @@ import model.domain.ReversiState;
  */
 public class ReversiCanvas extends BoardCanvas {
 
-	final Image reversiBack = new Image(null, "res/RiversiGrid.gif");
-	final Image reversiButton = new Image(null, "res/ReversiButton.png");
+	final Image reversiBack = new Image(null, this.getClass().getClassLoader().getResourceAsStream("view/res/RiversiGrid.gif"));
+	final Image reversiButton = new Image(null, this.getClass().getClassLoader().getResourceAsStream("view/res/ReversiButton.png"));
+//	final Image reversiBack = new Image(null, "res/RiversiGrid.gif");
+//	final Image reversiButton = new Image(null, "res/ReversiButton.png");
 	ReversiCharacter c;
 	HashMap<String, Button> ReversiButton;
 	Button[] button;
