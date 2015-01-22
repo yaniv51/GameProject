@@ -64,7 +64,7 @@ public class MyServer implements ServerTask {
 				BufferedReader clientIn = new BufferedReader(new InputStreamReader(someclient.getInputStream()));
 				while(! (line = clientIn.readLine()).equals("exit")  )
 					break;
-				System.out.println("Client Client number "+count+"connected to: "+line+"."+"\nIp: "+someclient.getInetAddress()+" Client Port: "+someclient.getPort()+" Local Port: "+someclient.getLocalPort());
+				System.out.println("Client number "+count+" connected to: "+line+"."+"\nIp: "+someclient.getInetAddress()+" Client Port: "+someclient.getPort()+" Local Port: "+someclient.getLocalPort());
 				count++;
 				if(line.equals("BoardGame") == true)
 				{
