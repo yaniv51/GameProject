@@ -8,6 +8,10 @@ import java.util.Observer;
 import view.View;
 import model_.Model;
 
+/**
+ * <h1>Presenter<h1> <p>
+ * Connect between the model and the view.
+ */
 public class Presenter implements Observer {
 
 	private Model model;

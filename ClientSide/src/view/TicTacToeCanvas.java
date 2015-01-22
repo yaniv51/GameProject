@@ -11,11 +11,20 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
+/**
+ * <h1> TicTacToeCanvas<h1> <p>
+ * This class extends BoardCanvas class.
+ */
 public class TicTacToeCanvas extends BoardCanvas {
 	final Image tttBack = new Image(null, "res/tttBackRound.png");
 	TicTacToeGameCharcter c;
 	Button[][] button;
 	String action;
+	
+	/**
+	 * <h1> TicTacToeCanvas<h1> <p>
+	 *  the C'tor of the TicTacToeCanvas Class
+	 */
 	
 	public TicTacToeCanvas(Composite parent, int style, View v) {
 		super(parent, style);
@@ -52,6 +61,8 @@ public class TicTacToeCanvas extends BoardCanvas {
 		});
 	}
 
+	
+	
 	@Override
 	public void PaintSolution(State game) {
 		int board[][] = game.getBoardGame();

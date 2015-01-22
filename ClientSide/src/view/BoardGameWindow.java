@@ -20,7 +20,11 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
 
-public class BoardGameWindow extends BasikWindow implements View {
+/**
+ * <h1> BoardGameWindow<h1> <p>
+ * Class for GUI. Extends BasicWindow and implements View.
+ */
+public class BoardGameWindow extends BasicWindow implements View {
 
 	String actions[];
 	String action;
@@ -257,7 +261,6 @@ public class BoardGameWindow extends BasikWindow implements View {
 		  
 	}
 
-	//state conversation
 	@Override
 	public void startView() throws IOException {
 		for(int i = 0; i< actions.length; i++) {
@@ -267,20 +270,19 @@ public class BoardGameWindow extends BasikWindow implements View {
 		}
 	}
 
-	//redraw canvas and show new state
 	@Override
 	public void displayCurrentState(State game) {
 		board.PaintSolution(game);
 		board.redraw();
 	}
 
-	//return user action
+
 	@Override
 	public String getUserAction() {
 		return action;
 	}
 
-	//open massage box if the game is over
+
 	@Override
 	public void gameOver(int gameOver) {
 		MessageBox messageBox = new MessageBox(shell, SWT.OK);
@@ -302,7 +304,7 @@ public class BoardGameWindow extends BasikWindow implements View {
 		shell.dispose();
 	}
 	
-	//get from canvas which button selected
+
 	@Override
 	public void setButtonSelection(String action) {
 		this.action = new String("insert "+action);
@@ -316,7 +318,10 @@ public class BoardGameWindow extends BasikWindow implements View {
 		messageBox.open();
 	}
 	
-	//set all necessary preference on GUI for starting new game 
+	/**
+	 * <h1> newGamePreference <h1><p>
+	 * set all necessary preference on GUI for starting new game 
+	 */
 	public void newGamePreference() {
 		board.dispose();
 		gameAlive = false;
@@ -325,8 +330,7 @@ public class BoardGameWindow extends BasikWindow implements View {
 		playerScore.setVisible(false);
 		opponentScore.setVisible(false);
 	}
-	
-	//get score of Reversi game add show score on window
+
 	@Override
 	public void changeLableText(int playerScores, int computerScores) {
 		opponentScoreLable.setVisible(true);
@@ -355,7 +359,7 @@ public class BoardGameWindow extends BasikWindow implements View {
 	public void setUserPoints() {
 	}
 
-	//insert properties
+
 	@Override
 	public void insertProperties() {
 		MessageBox messageBox = new MessageBox(shell, SWT.OK);

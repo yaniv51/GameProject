@@ -5,6 +5,11 @@ import java.util.HashMap;
 
 import model_.Model;
 
+
+/**
+ * <h1> UserCommand <h1> <p> 
+ * Class to handle with user command.<p>
+ */
 public class UserCommand {
 	
 	private HashMap<String, Command> userCommands;

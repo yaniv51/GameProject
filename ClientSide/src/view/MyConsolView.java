@@ -16,6 +16,8 @@ public class MyConsolView extends Observable implements View {
 	Scanner in = new Scanner(System.in);
 	boolean stop = false;
 	
+	
+	
 	@Override
 	public void startView() throws IOException {
 		

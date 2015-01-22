@@ -14,7 +14,11 @@ import org.eclipse.swt.widgets.Composite;
 import model.algorithm.State;
 import model.domain.ReversiState;
 
-
+/**
+ * 
+ * <h1> ReversiCanvas<h1> <p>
+ * This class extends BoardCanvas class.
+ */
 public class ReversiCanvas extends BoardCanvas {
 
 	final Image reversiBack = new Image(null, "res/RiversiGrid.gif");
@@ -26,6 +30,16 @@ public class ReversiCanvas extends BoardCanvas {
 	final View view;
 	ReversiCanvas tempCanvas;
 	
+	
+	/**
+	 * 
+	 * <h1> ReversiCanvas<h1> <p>
+	 * 
+	 * the C'tor of the ReversiCanvas class
+	 * @param parent - the shell of the display
+	 * @param style - None
+	 * @param v - the view that the C'tor work with.
+	 */
 	public ReversiCanvas(Composite parent, int style, View v) {
 		super(parent, style);
 		//set view for update
@@ -68,7 +82,6 @@ public class ReversiCanvas extends BoardCanvas {
 	
 	}
 	
-	//paint solution
 	@Override
 	public void PaintSolution(State game) {
 		final boolean playerTurn;
