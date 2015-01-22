@@ -1,5 +1,9 @@
 package tasks;
 
+/**
+ * <h1> ServerTask <h1> <p> 
+ * Class for new server task
+ */
 public interface ServerTask {
 
 	/**

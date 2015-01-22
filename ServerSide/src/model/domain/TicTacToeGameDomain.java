@@ -6,6 +6,10 @@ import model.algorithm.AI;
 import model.algorithm.GameDomain;
 import model.algorithm.State;
 
+/**
+ * <h1>TicTacToeGameDomain<h1> <p> 
+ * TicTacToe game domain - including method for TicTacToe game
+ */
 public class TicTacToeGameDomain implements GameDomain {
 
 	TicTacToeState game;
@@ -54,7 +58,7 @@ public class TicTacToeGameDomain implements GameDomain {
 		int turn;
 		boolean validMove = game.validMove(row, column); ;
 		if(validMove == false)
-			throw new Exception("not a valid move");
+			throw new Exception("Not a legal move");
 		
 		turn = 1;
 		game.setTurn(turn);

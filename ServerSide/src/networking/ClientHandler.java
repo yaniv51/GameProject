@@ -1,12 +1,13 @@
 package networking;
 
-
 import java.net.Socket;
 
 import tasks.ClientTask;
 
-
-
+/**
+ * <h1>ClientHandler<h1> <p> 
+ * Interface for handle with client
+ */
 public interface ClientHandler extends ClientTask {
 
 	/**

@@ -5,6 +5,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 @SuppressWarnings("serial")
+/**
+ * <h1>State<h1> <p> 
+ * Abstract class for board game state.<p>
+ * Include all relevant methods and data members for basic board game.
+ */
 public abstract class State implements Serializable {
 	
 	protected int[][] boardGame;

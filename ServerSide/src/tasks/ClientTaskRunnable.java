@@ -2,6 +2,10 @@ package tasks;
 
 import java.net.Socket;
 
+/**
+ * <h1> ClientTaskRunnable <h1> <p> 
+ *  Class implement Runnable, including run() for new client task
+ */
 public class ClientTaskRunnable implements Runnable {
 
 	ClientTask t;

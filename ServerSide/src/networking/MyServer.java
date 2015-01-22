@@ -10,6 +10,11 @@ import java.util.concurrent.Executors;
 import tasks.ClientTaskRunnable;
 import tasks.ServerTask;
 
+/**
+ * <h1>MyServer<h1> <p> 
+ * Implement ServerTask for new thread.<p>
+ * This class wait for connection from client.
+ */
 public class MyServer implements ServerTask {
 
 	ExecutorService executors;

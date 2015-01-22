@@ -34,6 +34,7 @@ public class MiniMax extends CommonAI {
 	
 
 	
+	
 	public int bestMove(State state, int depth, int agent, int maxDepth) {
 		int winner = state.gameOver();
 		int curMax = -2;

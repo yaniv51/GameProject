@@ -9,6 +9,10 @@ import model_.MyModel;
 import model_.Problem;
 import model_.Solution;
 
+/**
+ * <h1>GameClientHandler<h1> <p> 
+ * This class will handle with the client, get Problem and send back Solution
+ */
 public class GameClientHandler implements ClientHandler {
 
 	boolean stop = false;

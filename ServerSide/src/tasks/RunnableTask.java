@@ -1,5 +1,9 @@
 package tasks;
 
+/**
+ * <h1> RunnableTask<h1> <p> 
+ *  Class implement Runnable, include run() for new server task
+ */
 public class RunnableTask implements Runnable{
 
 	ServerTask t;

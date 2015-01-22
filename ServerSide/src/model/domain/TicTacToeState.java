@@ -5,13 +5,12 @@ import java.util.Random;
 
 import model.algorithm.State;
 
-
+/**
+ * <h1>TicTacToeState<h1> <p> 
+ * TicTacTOe game state, extends state and include all relevant methods and data members for TicTacTOe game
+ */
 public class TicTacToeState extends State {
 
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7647010730076072159L;
 
 	/**

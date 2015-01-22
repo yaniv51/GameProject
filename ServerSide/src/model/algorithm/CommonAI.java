@@ -1,5 +1,9 @@
 package model.algorithm;
 
+/**
+ * <h1>CommonAI<h1> <p> 
+ * Common artificial intelligence interface.
+ */
 public abstract class CommonAI implements AI {
 
 	@Override
