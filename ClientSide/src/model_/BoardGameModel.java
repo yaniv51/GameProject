@@ -38,6 +38,7 @@ public class BoardGameModel extends Observable implements Model {
 	private boolean firstConnection;
 	private boolean haveConnection;
 	private boolean propertiesLoaded;
+	private boolean haveTurn;
 	
 	/**
 	 * <h1> BoardGameModel <h1> <p>
@@ -56,6 +57,7 @@ public class BoardGameModel extends Observable implements Model {
 		firstConnection = true;
 		haveConnection = false;
 		propertiesLoaded = false;
+		haveTurn = true;
 	}
 
 
@@ -67,7 +69,6 @@ public class BoardGameModel extends Observable implements Model {
 	 * @param String domainName - contain a string with the name of the Domain that the user wish to active. <p>  
 	 * 
 	 */
-	
 	@Override
 	public void selectDomain(String domainName) {
 		game = this.gameFactory.createGame(domainName);
@@ -95,10 +96,11 @@ public class BoardGameModel extends Observable implements Model {
 	 * @param int row & int column - is the point that the user choose to play
 	 * 
 	 */
-	
-	
 	public void gameManager(int row, int column) throws Exception {
 		gameOver = game.playerTurn(row, column);
+		
+		//if computer has no more moves -> skip turn
+		
 		this.setChanged();
 		this.notifyObservers("Computer Turn");
 	}
@@ -164,7 +166,6 @@ public class BoardGameModel extends Observable implements Model {
 	 * the method will finish connection with the server.
 	 * 
 	 */
-	
 	// when user enter "exit" -> send to server finish connection
 	public void saveGame() throws IOException  {
 		//make new problem to be the smallest that possible

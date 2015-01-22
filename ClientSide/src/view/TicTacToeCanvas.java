@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.Composite;
  */
 public class TicTacToeCanvas extends BoardCanvas {
 	final Image tttBack = new Image(null, "res/tttBackRound.png");
+	
 	TicTacToeGameCharcter c;
 	Button[][] button;
 	String action;

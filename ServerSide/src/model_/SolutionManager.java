@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class SolutionManager {
 	
 	HashMap<String, Solution> HashSolutions ; // the Hash map will save the description of the state of the solution and the Object Solution
-	 private static final String fileName = "solution.bat"; // choose the name of the filename that we'll save the data in to.
+	 private static final String fileName = "Data/solution.bat"; // choose the name of the filename that we'll save the data in to.
 	 private static SolutionManager instance = null; //make class singleton 
 	
 	/**

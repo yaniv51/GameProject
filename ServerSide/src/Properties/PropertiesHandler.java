@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
  */
 public class PropertiesHandler  {
 
-	final static String fileName = "Properties.xml";
+	final static String fileName = "Data/Properties.xml";
 
 	/**
 	 * <h1> writeProperties <h1> <p> 
