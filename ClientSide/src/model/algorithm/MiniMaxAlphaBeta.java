@@ -1,7 +1,10 @@
 package model.algorithm;
 
 import java.util.HashMap;
-
+/**
+ * <h1>MiniMaxAlphaBeta<h1> <p> 
+ * Implementation of MiniMaxAlphaBeta pruning cut algorithm
+ */
 public class MiniMaxAlphaBeta extends CommonAI {
 	
 	//generate first childer's layer from received state - we want to take the biggest score from one of the children

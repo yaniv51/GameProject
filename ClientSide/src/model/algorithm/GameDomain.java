@@ -1,6 +1,9 @@
 package model.algorithm;
 
-
+/**
+ * <h1>GameDomain<h1> <p> 
+ * Interface that include all necessary methods for boardGame domain
+ */
 public interface GameDomain {
 	
 	/**
