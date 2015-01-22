@@ -5,7 +5,10 @@ import java.util.HashMap;
 
 import model.algorithm.State;
 
-
+/**
+ * <h1>ReversiState<h1> <p> 
+ * Reversi game state, extends state and include all relevant methods and data members for Reversi game
+ */
 public class ReversiState extends State {
 	
 	/**

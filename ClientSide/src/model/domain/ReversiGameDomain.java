@@ -6,6 +6,10 @@ import model.algorithm.AI;
 import model.algorithm.GameDomain;
 import model.algorithm.State;
 
+/**
+ * <h1>ReversiGameDomain<h1> <p> 
+ * Reversi game domain - including method for reversi game
+ */
 public class ReversiGameDomain implements GameDomain {
 
 	ReversiState game;

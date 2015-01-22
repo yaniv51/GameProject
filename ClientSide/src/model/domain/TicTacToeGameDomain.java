@@ -6,6 +6,10 @@ import model.algorithm.AI;
 import model.algorithm.GameDomain;
 import model.algorithm.State;
 
+/**
+ * <h1>TicTacToeGameDomain<h1> <p> 
+ * TicTacToe game domain - including method for TicTacToe game
+ */
 public class TicTacToeGameDomain implements GameDomain {
 
 	TicTacToeState game;
